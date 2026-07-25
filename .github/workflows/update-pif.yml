@@ -27,13 +27,15 @@ jobs:
           python-version: '3.x'
       - name: Generate fresh canary fingerprint
         run: python3 gen_safetyfing.py
+      - name: Hot-swap keybox if current is revoked/dead
+        run: python3 gen_keybox.py || echo "keybox refresh failed (kept existing)"
       - name: Commit if changed
         run: |
           git config user.name  'pif-bot'
           git config user.email 'pif-bot@users.noreply.github.com'
-          if ! git diff --quiet -- safetyfing.txt; then
-            git add safetyfing.txt
-            git commit -m "auto: refresh Pixel canary fingerprint"
+          git add safetyfing.txt keyb01x.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: refresh Pixel canary fingerprint + live keybox"
             git push
           else
             echo "no change"
