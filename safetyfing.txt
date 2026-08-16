@@ -1,3 +1,3 @@
-safetyinfo=google/Google/cheetah/cheetah_beta/Pixel 7 Pro/ZP11.260717.006/2026-08-05/33/17
+safetyinfo=google/Google/cheetah/cheetah_beta/Google Pixel 7 Pro/ZP11.260717.006/2026-08-05/33/17
 
 safetyfing=google/cheetah_beta/cheetah:CANARY/ZP11.260717.006/16004061:user/release-keys
